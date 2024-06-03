@@ -64,6 +64,7 @@ jobs:
           path: ${{ github.workspace }}/helm-charts
 
   docker-ci:
+    name: Build and Push Image
     runs-on: ubuntu-latest
     if: ${{ github.ref_name == 'main' }}
     needs: python-ci
