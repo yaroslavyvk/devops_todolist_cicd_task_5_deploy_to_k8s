@@ -35,6 +35,7 @@ Docker CI Job Requirements:
 1. Update your forked repository with your DockerHub username and password.
     1. Add Corresponding secrets to the repository.
 2. Update DockerImageName with your DockerHub image repository name
-3. 
+3. Add a resubable workflow to deploy to kubernetes cluster.
+    1.
 6. Create a Pull Request with the changes.
 7. Pull Requests description should also contain a reference to a workflow run with successfull Docker CI job.
