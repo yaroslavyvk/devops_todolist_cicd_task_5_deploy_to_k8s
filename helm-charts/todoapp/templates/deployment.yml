@@ -20,15 +20,6 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.todoapp.image.repository }}:{{ .Values.todoapp.image.tag }}
-        volumeMounts:
-        - name: data
-          mountPath: /app/data
-        - name: app-secrets-volume
-          mountPath: "/app/secrets"
-          readOnly: true
-        - name: app-config-volume
-          mountPath: "/app/configs"
-          readOnly: true
         resources:
           requests:
             memory: {{ .Values.todoapp.resources.requests.memory }}
@@ -50,22 +41,22 @@ spec:
         - name: DB_NAME
           valueFrom:
             secretKeyRef:
-              name: app-secret
+              name: {{ .Chart.Name }}-secret
               key: DB_NAME
         - name: DB_USER
           valueFrom:
             secretKeyRef:
-              name: app-secret
+              name: {{ .Chart.Name }}-secret
               key: DB_USER
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: app-secret
+              name: {{ .Chart.Name }}-secret
               key: DB_PASSWORD
         - name: DB_HOST
           valueFrom:
             secretKeyRef:
-              name: app-secret
+              name: {{ .Chart.Name }}-secret
               key: DB_HOST
         ports:
         - containerPort: 8080
@@ -81,13 +72,3 @@ spec:
             port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
-      volumes:
-      - name: data
-        persistentVolumeClaim:
-          claimName: pvc-data
-      - name: app-secrets-volume
-        secret:
-          secretName: app-secret
-      - name: app-config-volume
-        configMap:
-          name: app-config

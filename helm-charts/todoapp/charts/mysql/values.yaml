@@ -7,15 +7,15 @@ image:
 port: 3306
 
 secrets:
-  MYSQL_ROOT_PASSWORD: "MTIzNA==" # Base64 encoding for "1234"
-  MYSQL_USER: "YXBwX3VzZXI=" # Base64 encoding for "app_user"
-  MYSQL_PASSWORD: "MTIzNA==" # Base64 encoding for "1234"
+  MYSQL_ROOT_PASSWORD: 12345
+  MYSQL_USER: app_user
+  MYSQL_PASSWORD: 1234
 
 resources:
   requests:
-    cpu: 500m
+    cpu: 200m
     memory: 1Gi
-    storage: 2Gi
+    storage: 500Mi
   limits:
-    cpu: 500m
+    cpu: 200m
     memory: 1Gi
