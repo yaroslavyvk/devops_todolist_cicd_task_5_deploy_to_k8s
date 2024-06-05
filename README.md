@@ -45,4 +45,4 @@ This CI/CD enhancement involves several key tasks:
 4. Call reusable workflow to deploy to `development` environment.
 5. Call reusable workflow to deploy to `staging` environment.
 6. Create a pull request with the changes.
-7. Pull request's description should also contain a reference to a workflow run with successfull Docker CI job.
+7. Pull request's description should also contain a reference to a successful workflow run.
